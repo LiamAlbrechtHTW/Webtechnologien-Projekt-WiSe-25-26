@@ -1,18 +1,18 @@
 package com.example.demo;
 
 public class Karteikarte {
+    private String id;
     private String frage;
     private String antwort;
-    private Long id;
 
     // private boolean markiert = false;
     // private boolean Richtig = false;
 
 
-    public Karteikarte(String frage, String antwort, Long id) {
+    public Karteikarte(String frage, String antwort, String id) {
+        this.id = id;
         this.frage = frage;
         this.antwort = antwort;
-        this.id = id;
     }
 
     public String getFrage() {
@@ -31,11 +31,11 @@ public class Karteikarte {
         this.antwort = antwort;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
