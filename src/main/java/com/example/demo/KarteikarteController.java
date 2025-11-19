@@ -17,12 +17,12 @@ public class KarteikarteController {
         return "Hallo, willkommen im Karteikarten-System!";
     }
 
-
+    @GetMapping
     public List<Karteikarte> getAllCards() {
         return List.of(
-                new Karteikarte("Was ist die Hauptstadt von Deutschland?", "Berlin", "1"),
-                new Karteikarte("Was ist 2 + 2?", "4", "2"),
-                new Karteikarte("Was ist die Hauptstadt von Frankreich?", "Paris", "3")
+                new Karteikarte("1", "Was ist die Hauptstadt von Deutschland?", "Berlin"),
+                new Karteikarte("2", "Was ist 2 + 2?", "4"),
+                new Karteikarte("3", "Was ist die Hauptstadt von Frankreich?", "Paris")
         );
     }
 }
