@@ -1,21 +1,31 @@
 package com.example.demo;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Karteikarte {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String frage;
     private String antwort;
 
     public Karteikarte() {}
 
-    public Karteikarte(String id, String frage, String antwort) {
+    public Karteikarte(Long id, String frage, String antwort) {
         this.id = id;
         this.frage = frage;
         this.antwort = antwort;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getFrage() { return frage; }
     public void setFrage(String frage) { this.frage = frage; }
