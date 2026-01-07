@@ -19,6 +19,6 @@ public class KarteikarteService {
     public List<Karteikarte> getAll() {
         List<Karteikarte> list = new ArrayList<>();
         repo.findAll().forEach(list::add);
-        return list;
+        return list; 
     }
 }
