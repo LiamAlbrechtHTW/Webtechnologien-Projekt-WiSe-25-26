@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,15 +9,18 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class KarteikarteController {
 
-    @Autowired
-    private KarteikarteService service;
+    private final KarteikarteService service;
 
-    @PostMapping("/karteikarten")
-    public Karteikarte create(@RequestBody Karteikarte k) {
-        return service.save(k);
+    public KarteikarteController(KarteikarteService service) {
+        this.service = service;
     }
 
-    @GetMapping("/karteikarten")
+    @PostMapping
+    public Karteikarte create(@RequestBody Karteikarte k) {
+        return service.create(k);
+    }
+
+    @GetMapping
     public List<Karteikarte> getAll() {
         return service.getAll();
     }

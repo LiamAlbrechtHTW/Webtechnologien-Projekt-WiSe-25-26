@@ -25,7 +25,6 @@ public class Karteikarte {
     }
 
     public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
     public String getFrage() { return frage; }
     public void setFrage(String frage) { this.frage = frage; }
