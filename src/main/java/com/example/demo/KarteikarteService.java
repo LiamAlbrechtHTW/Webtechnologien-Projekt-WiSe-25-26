@@ -29,4 +29,9 @@ public class KarteikarteService {
         repo.findAll().forEach(list::add);
         return list;
     }
+
+    public void delete(Long id) {
+        repo.deleteById(id);
+    }
+
 }

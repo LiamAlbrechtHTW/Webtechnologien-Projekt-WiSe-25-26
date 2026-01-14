@@ -24,4 +24,10 @@ public class KarteikarteController {
     public List<Karteikarte> getAll() {
         return service.getAll();
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
+    }
+
 }
