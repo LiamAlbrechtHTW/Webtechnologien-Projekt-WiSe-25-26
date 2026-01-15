@@ -30,4 +30,9 @@ public class KarteikarteController {
         service.delete(id);
     }
 
+    @PutMapping("/{id}")
+    public Karteikarte update(@PathVariable Long id, @RequestBody Karteikarte k) {
+        return service.update(id, k);
+    }
+
 }

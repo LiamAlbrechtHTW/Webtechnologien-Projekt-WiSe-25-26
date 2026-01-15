@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class KarteikarteService {
@@ -27,6 +28,13 @@ public class KarteikarteService {
     public List<Karteikarte> getAll() {
         List<Karteikarte> list = new ArrayList<>();
         repo.findAll().forEach(list::add);
+
+        if (list.isEmpty()) {
+            return List.of(
+                    new Karteikarte(-1L, "Beispiel-Frage 1", "Beispiel-Antwort 1"),
+                    new Karteikarte(-2L, "Beispiel-Frage 2", "Beispiel-Antwort 2")
+            );
+        }
         return list;
     }
 
@@ -34,4 +42,14 @@ public class KarteikarteService {
         repo.deleteById(id);
     }
 
+
+    public Karteikarte update(Long id, Karteikarte input) {
+        Karteikarte existing = repo.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Karteikarte nicht gefunden: " + id));
+
+        existing.setFrage(input.getFrage());
+        existing.setAntwort(input.getAntwort());
+
+        return repo.save(existing);
+    }
 }
