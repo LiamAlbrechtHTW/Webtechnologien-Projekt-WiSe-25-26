@@ -1,10 +1,6 @@
-package com.example.demo;
+package com.example.demo.entity;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Karteikarte {
@@ -16,21 +12,27 @@ public class Karteikarte {
     private String frage;
     private String antwort;
 
+
+    private String sessionId;
+
     public Karteikarte() {}
 
-    public Karteikarte(Long id, String frage, String antwort) {
+    public Karteikarte(Long id, String frage, String antwort, String sessionId) {
         this.id = id;
         this.frage = frage;
         this.antwort = antwort;
+        this.sessionId = sessionId;
     }
 
     public Long getId() { return id; }
-    public void setId(Long id) {this.id = id;}
-
+    public void setId(Long id) { this.id = id; }
 
     public String getFrage() { return frage; }
     public void setFrage(String frage) { this.frage = frage; }
 
     public String getAntwort() { return antwort; }
     public void setAntwort(String antwort) { this.antwort = antwort; }
+
+    public String getSessionId() { return sessionId; }
+    public void setSessionId(String sessionId) { this.sessionId = sessionId; }
 }
