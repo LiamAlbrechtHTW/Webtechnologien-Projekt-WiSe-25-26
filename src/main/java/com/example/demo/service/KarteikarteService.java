@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.entity.Karteikarte;
 import com.example.demo.repository.KarteikarteRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -27,6 +28,7 @@ public class KarteikarteService {
         return repo.findBySessionId(sessionId);
     }
 
+    @Transactional
     public void delete(String sessionId, Long cardId) {
         repo.deleteByIdAndSessionId(cardId, sessionId);
     }
@@ -39,7 +41,6 @@ public class KarteikarteService {
 
         existing.setFrage(input.getFrage());
         existing.setAntwort(input.getAntwort());
-        // sessionId bleibt fest
         return repo.save(existing);
     }
 
